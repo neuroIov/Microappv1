@@ -26,7 +26,7 @@ const referralRoutes = require("./routes/referralRoutes");
 const settingsRoutes = require("./routes/settingsRoutes");
 const achievementRoutes = require("./routes/achievementRoutes");
 
-const devAuthRoutes = require('./routes/devAuthRoutes');
+
 
 const { initCronJobs } = require("./utils/cronJobs");
 
@@ -141,10 +141,7 @@ app.post(`/bot${process.env.TELEGRAM_BOT_TOKEN}`, (req, res) => {
   });
 });
 
-if (process.env.NODE_ENV === 'development') {
-  app.use('/api/dev', devAuthRoutes);
-  logger.info('Development routes enabled');
-}
+
 
 // Error handling middleware
 app.use(errorHandler);
